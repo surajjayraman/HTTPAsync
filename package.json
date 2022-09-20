@@ -1,0 +1,25 @@
+{
+  "name": "HTTPAsync",
+  "version": "1.0.0",
+  "description": "",
+  "main": "async.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surajjayraman/HTTPAsync.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/surajjayraman/HTTPAsync/issues"
+  },
+  "homepage": "https://github.com/surajjayraman/HTTPAsync#readme",
+  "dependencies": {
+    "await-promises": "^1.0.6",
+    "node-fetch": "^3.2.10"
+  },
+  "type": "module"
+}

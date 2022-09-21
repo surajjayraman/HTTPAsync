@@ -1,9 +1,10 @@
 import fetch from "node-fetch";
 const apiKey = generateKey();
+const itemURL = 'https://api.boot.dev/v1/courses_rest_api/learn-http/items';
 
 // async function code
-const getItemData = async function() {
-  const response = await fetch('https://api.boot.dev/v1/courses_rest_api/learn-http/items', {
+const getItemData = async function(url) {
+  const response = await fetch(url, {
     method: 'GET',
     mode: 'cors',
     headers: {
@@ -30,7 +31,7 @@ function logItems(items) {
 }
 
 const start = async function() {
-    const items = await getItemData();
+    const items = await getItemData(itemURL);
     logItems(items);
     return items;
   };

@@ -9,7 +9,7 @@ const getItemData = async function(url) {
 };
 
 // Refactor to add getUrl() and getSettings()
-function getSettings() {
+const getSettings = function getSettings() {
   return {
     method: 'GET',
     mode: 'cors',

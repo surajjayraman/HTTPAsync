@@ -1,6 +1,15 @@
 import fetch from "node-fetch";
 const apiKey = generateKey();
 const itemURL = getURL();
+const domain = 'api.boot.dev'
+
+// fetch IP Address associated with a domain
+const ipAddress = await fetchIPAddress(domain)
+if (!ipAddress) {
+  console.log('something went wrong in fetchIPAddress')
+} else {
+  console.log(`found IP address for domain ${domain}: ${ipAddress}`)
+}
 
 // async function code
 const getItemData = async function(url) {
@@ -24,6 +33,17 @@ function getURL() {
   return 'https://api.boot.dev/v1/courses_rest_api/learn-http/items'
 }
 
+// return IP Address associated with a domain
+async function fetchIPAddress(domain) {
+  const resp = await fetch(`https://cloudflare-dns.com/dns-query?name=${domain}&type=A`, {
+    headers: {
+      'accept': 'application/dns-json'
+    }
+  })
+  const respObject = await resp.json()
+
+  return(respObject.Answer[0].data);
+}
 
 function generateKey() {
   const characters = 'ABCDEF0123456789';
@@ -45,5 +65,10 @@ const start = async function() {
     logItems(items);
     return items;
   };
+
+
   
   start();
+
+
+

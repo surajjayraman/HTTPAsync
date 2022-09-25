@@ -1,7 +1,8 @@
 import fetch from "node-fetch";
 const apiKey = generateKey();
 const itemURL = getURL();
-const domain = 'api.boot.dev'
+const domain = 'api.boot.dev';
+const bootdevURL = 'https://boot.dev/learn/learn-python'
 
 // fetch IP Address associated with a domain
 const ipAddress = await fetchIPAddress(domain)
@@ -9,6 +10,16 @@ if (!ipAddress) {
   console.log('something went wrong in fetchIPAddress')
 } else {
   console.log(`found IP address for domain ${domain}: ${ipAddress}`)
+}
+
+// get domain (host) name
+const domainName = getDomainNameFromURL(bootdevURL)
+console.log(`The domain name for ${bootdevURL} is ${domainName}`);
+
+function getDomainNameFromURL(url) {
+  // return the domain(or host) name
+  const urlObj = new URL(url);
+  return urlObj.hostname;
 }
 
 // async function code

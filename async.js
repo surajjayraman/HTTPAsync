@@ -2,7 +2,8 @@ import fetch from "node-fetch";
 const apiKey = generateKey();
 const itemURL = getURL();
 const domain = 'api.boot.dev';
-const bootdevURL = 'https://boot.dev/learn/learn-python'
+const bootdevURL = 'https://boot.dev/learn/learn-python';
+const bootdevAPIDomain = 'api.boot.dev'
 
 // fetch IP Address associated with a domain
 const ipAddress = await fetchIPAddress(domain)
@@ -23,8 +24,8 @@ function getDomainNameFromURL(url) {
 }
 
 // async function code
-const getItemData = async function(url) {
-  const response = await fetch(url, getSettings);
+const getItemData = async function(domain) {
+  const response = await fetch(`https://${domain}/v1/courses_rest_api/learn-http/items`, getSettings);
   return response.json();
 };
 
@@ -72,7 +73,7 @@ function logItems(items) {
 }
 
 const start = async function() {
-    const items = await getItemData(itemURL);
+    const items = await getItemData(bootdevAPIDomain);
     logItems(items);
     return items;
   };

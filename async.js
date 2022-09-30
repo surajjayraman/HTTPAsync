@@ -30,7 +30,7 @@ const getItemData = async function(domain) {
 };
 
 // Refactor to add getUrl() and getSettings()
-const getSettings = function getSettings() {
+const getSettings = function () {
   return {
     method: 'GET',
     mode: 'cors',
@@ -40,6 +40,23 @@ const getSettings = function getSettings() {
     }
   }
 }
+
+// parse a URL and print all the different parts
+const printURLParts = function (urlString) {
+  const urlObj = new URL(urlString)
+  console.log("protocol:", urlObj.protocol);
+  console.log("username:", urlObj.username);
+  console.log("password:", urlObj.password);
+  console.log("hostname",  urlObj.hostname);
+  console.log("port", urlObj.port);
+  console.log("pathname", urlObj.pathname);
+  console.log("search", urlObj.search);
+  console.log("hash", urlObj.hash);
+  
+}
+
+const fantasyQuestURL = 'http://dragonslayer:pwn3d@fantasyquest.com:8080/maps?sort=rank#id';
+printURLParts(fantasyQuestURL);
 
 function getURL() {
   return 'https://api.boot.dev/v1/courses_rest_api/learn-http/items'

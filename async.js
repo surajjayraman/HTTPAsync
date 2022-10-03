@@ -60,6 +60,19 @@ function getMailtoLinkForEmail(email) {
   return (`mailto:${email}`);
 }
 
+// update URL to fetch some location data
+const logLocations = function (locations) {
+  for (const location of locations) {
+    console.log(`Location: ${location.name}, Recommended Character Level: ${location.recommendedLevel}`)
+  } 
+}
+const url = 'https://api.boot.dev/v1/courses_rest_api/learn-http/locations';
+
+const response = await fetch(url, getSettings);
+const responseData = await response.json();
+logLocations(responseData);
+
+
 let email = 'slayer@fquest.app'
 console.log(`The mailto link for ${email} is: ${getMailtoLinkForEmail(email)}`)
 email = 'killer@fquest.app'

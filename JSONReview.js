@@ -1,5 +1,4 @@
 import fetch from "node-fetch";
-
 // Code Fix:
 // The body property on the object we're passing into the fetch function should be a JSON string,
 // not a JavaScript object.

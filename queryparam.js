@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 async function getUsers(url, apiKey) {
-    const fullURL = `${url}?sort=level`
+    const fullURL = `${url}?sort=level&limit=5`
     const response = await fetch(fullURL, {
       method: 'GET',
       mode: 'cors',
